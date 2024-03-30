@@ -1,0 +1,37 @@
+.header {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  padding: 64px 0;
+  color: #ffffff;
+  background-color: #512689;
+}
+
+.outdoor {
+  position: absolute;
+  right: 80px;
+  top: 32px;
+  font-size: 16px;
+  color: #ffffff;
+  padding: 8px 16px;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 8px;
+  border-width: 1px;
+  border-color: #ffffff;
+}
+
+.hello-banner {
+  width: 846px;
+}
+
+h1.hello-banner__title {
+  font-size: 64px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 20px;
+  line-height: 23px;
+  text-align: center;
+}
