@@ -2,21 +2,22 @@ import React from "react";
 import Header from "./components/header/index";
 import UserCard from "./components/user-card/index";
 import "./App.css";
-import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
 
 export function App() {
-  useEffect(() => {
-    fetchUsers();
-  });
-
   const [users, setUser] = useState([]);
 
   async function fetchUsers() {
-    const response = await axios.get("https://reqres.in/api/users?page=2");
-    setUser(response.data.data);
+    await fetch("https://reqres.in/api/users")
+      .then((response) => response.json())
+      .then((data) => setUser(data.data))
+      .catch((error) => console.log("Error", error));
   }
+
+  useEffect(() => {
+    fetchUsers();
+  }, []);
 
   return (
     <div className="App">
