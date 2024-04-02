@@ -1,24 +1,25 @@
 import React from "react";
-import Header from "./components/header";
-import UserCard from "./components/user-card";
-import "./styles/App.css";
+import Header from "./components/header/index";
+import UserCard from "./components/user-card/index";
+import "./App.css";
 
-function App() {
+const users = [
+  { title: "Mikhail Khom" },
+  { title: "piskaman Bryyev" },
+  { title: "Chlenmman Bryyev" },
+  { title: "piskaman Bryyev" },
+  { title: "Chlenmman Bryyev" },
+];
+
+export function App() {
   return (
     <div className="App">
       <Header />
       <div className="main">
-        <UserCard />
-        <UserCard />
-        <UserCard />
-        <UserCard />
-        <UserCard />
-        <UserCard />
-        <UserCard />
-        <UserCard />
+        {users.map((item, index) => (
+          <UserCard key={index} title={item.title} />
+        ))}
       </div>
     </div>
   );
 }
-
-export default App;

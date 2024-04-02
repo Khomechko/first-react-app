@@ -1,11 +1,13 @@
 import React from "react";
-import "../styles/userCard.css";
+import "./style.css";
 
-const UserCard = () => {
+// const UserCard = (props) => {
+//   const {title} = props
+const UserCard = ({ title }) => {
   return (
     <div className="card">
       <img src="" alt="" className="card__avatar" />
-      <h2 className="card__name">Michail Khom</h2>
+      <h2 className="card__name">{title}</h2>
       <div className="like-box">
         <img src="" alt="" className="like-logo" />
       </div>
@@ -14,5 +16,3 @@ const UserCard = () => {
 };
 
 export default UserCard;
-{
-}
