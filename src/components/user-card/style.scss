@@ -9,21 +9,21 @@
   flex-direction: column;
   align-items: center;
   gap: 16px;
+
+  &__avatar {
+    width: 124px;
+    height: 124px;
+  }
 }
 
-.card__avatar {
-  width: 124px;
-  height: 124px;
-}
-
-.like-box {
+.like {
   width: 265px;
   display: flex;
   justify-content: flex-end;
-}
 
-.like-logo {
-  width: 12px;
-  height: 12px;
-  margin: 8px;
+  .like-logo {
+    width: 12px;
+    height: 12px;
+    margin: 8px;
+  }
 }

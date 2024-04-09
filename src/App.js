@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./components/header/index";
 import UserCard from "./components/user-card/index";
-import "./App.css";
+import "./App.scss";
 import { useState } from "react";
 import { useEffect } from "react";
 
