@@ -2,18 +2,11 @@ import React from "react";
 import Header from "./components/header/index";
 import UserCard from "./components/user-card/index";
 import "./App.scss";
-import { useState } from "react";
 import { useEffect } from "react";
+import { useGetUser } from "./hooks/useGetUser";
 
 export function App() {
-  const [users, setUser] = useState([]);
-
-  async function fetchUsers() {
-    await fetch("https://reqres.in/api/users")
-      .then((response) => response.json())
-      .then((data) => setUser(data.data))
-      .catch((error) => console.log("Error", error));
-  }
+  const { users, fetchUsers } = useGetUser();
 
   useEffect(() => {
     fetchUsers();
