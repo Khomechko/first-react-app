@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "./components/header/index";
-import UserCard from "./components/user-card/index";
+import Header from "./components/Header/index";
+import { UserCard } from "./components/UserCard/index";
 import "./App.scss";
 import { useEffect } from "react";
 import { useGetUser } from "./hooks/useGetUser";
