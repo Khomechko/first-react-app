@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.scss";
-import { Like } from "../Like";
+import { Like } from "../like";
 
 export const UserCard = (props) => {
   return (

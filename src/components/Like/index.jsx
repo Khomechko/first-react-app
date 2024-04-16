@@ -3,18 +3,16 @@ import { LikeLogo } from "../../UI/logo/LikeLogo";
 import { useState } from "react";
 
 export const Like = () => {
-  const [logo, setlogo] = useState(<LikeLogo />);
-  const [state, setState] = useState(false);
+  const [active, setActive] = useState(false);
 
-  function toLike() {
-    setState(!state);
-    state === false ? setlogo(<LikeLogoActive />) : setlogo(<LikeLogo />);
-  }
+  const toLike = () => {
+    setActive((prev) => !prev);
+  };
 
   return (
     <div className="like">
       <div className="like-box" onClick={toLike}>
-        {logo}
+        {active ? <LikeLogoActive /> : <LikeLogo />}
       </div>
     </div>
   );
