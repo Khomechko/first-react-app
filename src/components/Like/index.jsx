@@ -1,5 +1,5 @@
-import { LikeLogoActive } from "../../UI/logo/LIkeLogoActive";
-import { LikeLogo } from "../../UI/logo/LikeLogo";
+import { LikeLogoActive } from "../../ui/logo/LIkeLogoActive";
+import { LikeLogo } from "../../ui/logo/LikeLogo";
 import { useState } from "react";
 
 export const Like = () => {

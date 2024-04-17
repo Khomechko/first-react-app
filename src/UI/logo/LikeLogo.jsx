@@ -1,5 +1,5 @@
 import "./style.scss";
-import "../../UI/colors/style.scss";
+import "../colors/style.scss";
 
 export const LikeLogo = () => {
   return (
