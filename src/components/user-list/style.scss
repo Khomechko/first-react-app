@@ -1,6 +1,21 @@
-.user-list {
-  padding: 48px 80px 0 80px;
+@import "/src/UI/colors/style.scss";
+
+.user-list-wrapper {
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+  .user-list {
+    padding: 48px 80px 0 80px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .paginationBtn {
+    margin: auto;
+    padding: 5px;
+    border-radius: 8px;
+    background-color: $transpt;
+    border-width: 1px;
+    border-color: #151317;
+  }
 }
