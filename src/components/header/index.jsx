@@ -1,7 +1,8 @@
 import React from "react";
 import "./style.scss";
+import { MainButton } from "../../ui/main-button";
 
-const Header = () => {
+export const Header = () => {
   return (
     <div className="header">
       <div className="hello-banner">
@@ -12,9 +13,7 @@ const Header = () => {
           сложных ситуаций.
         </h2>
       </div>
-      <button className="outdoor">Выход</button>
+      <MainButton>Выход</MainButton>
     </div>
   );
 };
-
-export default Header;
