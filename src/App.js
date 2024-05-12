@@ -1,14 +1,15 @@
 import React from "react";
-import { Header } from "./components/header/index";
-import { UserList } from "./components/user-list";
-import "./App.scss";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Partner } from "./components/pages/partner";
+import { OurTeam } from "./components/pages/our-team";
 
 export function App() {
   return (
-    <div className="App">
-      <Header />
-      <UserList />
-      <div className="footer" style={{ height: "40px" }}></div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<OurTeam />} />
+        <Route path="/partner" element={<Partner />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
