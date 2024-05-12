@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { UserCard } from "../user-card";
 import { useState } from "react";
+import { Pagination } from "../../ui/pagination";
 import "./style.scss";
 
 export const UserList = () => {
@@ -36,12 +37,7 @@ export const UserList = () => {
           />
         ))}
       </div>
-      {/* почему в onClick передаем анонимную функцию? */}
-      {page < totlaPage && (
-        <button className="paginationBtn" onClick={() => setPage(page + 1)}>
-          Показать ещё
-        </button>
-      )}
+      <Pagination page={page} totlaPage={totlaPage} setPage={setPage} />
     </div>
   );
 };
