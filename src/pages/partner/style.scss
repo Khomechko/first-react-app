@@ -1,0 +1,24 @@
+.user-profile {
+  display: flex;
+  justify-content: left;
+  width: auto;
+  width: 100%;
+  padding: 0 29px;
+
+  &__inner {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-height: 150px;
+  }
+  &__subtitle {
+    text-align: left;
+    font-size: 32px;
+  }
+}

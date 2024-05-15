@@ -7,7 +7,7 @@ export const UserCard = ({ id, title, avatar }) => {
 
   return (
     <div className="card">
-      <Link to="/partner">
+      <Link to={`/partner/${id}`}>
         <img src={avatar} alt="" className="card__avatar" />
       </Link>
       <h2 className="card__name">{title}</h2>

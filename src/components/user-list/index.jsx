@@ -12,7 +12,7 @@ export const UserList = () => {
   const [totlaPage, setTotalPage] = useState(0);
 
   async function fetchUsers() {
-    await fetch(`https://reqres.in/api/users?page=${page}&per_page=8`)
+    await fetch(`https://reqres.in/api/users?page=${page}&per_page=8/`)
       .then((response) => response.json())
       .then((data) => {
         setUser((pre) => [...pre, ...data.data]); // в душе не ебу как это работает
@@ -37,7 +37,7 @@ export const UserList = () => {
           />
         ))}
       </div>
-      <Pagination page={page} totlaPage={totlaPage} setPage={setPage} />
+      <Pagination page={page} totalPage={totlaPage} setPage={setPage} />
     </div>
   );
 };

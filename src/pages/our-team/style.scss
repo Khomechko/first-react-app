@@ -1,0 +1,17 @@
+.hello-banner {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 846px;
+  min-width: 600px;
+
+  &__title {
+    font-size: 64px;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+}
+
+.fake-button {
+  width: 81px;
+}
