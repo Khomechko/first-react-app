@@ -20,6 +20,10 @@
   }
 }
 
+.card:focus {
+  border: 1px solid black;
+}
+
 .like {
   width: 265px;
   display: flex;
