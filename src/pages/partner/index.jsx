@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { MainButton } from "../../ui/main-button";
 import { UserDescription } from "../../components/user-description";
 
@@ -27,7 +27,9 @@ export const Partner = () => {
   return (
     <>
       <div className="header">
-        <MainButton>Назад</MainButton>
+        <Link to={"/"}>
+          <MainButton>Назад</MainButton>
+        </Link>
         <div className="user-profile">
           <div className="user-profile__inner">
             <img
