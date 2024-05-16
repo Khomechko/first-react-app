@@ -1,7 +1,21 @@
 import React from "react";
 import "./style.scss";
 
-export function UserDescription() {
+export function UserDescription({ id, email }) {
+  function createNumberById() {
+    // лаконичность этой функции не поражает, но она работает
+    const last4Number = id + "544";
+    const separatedDigits = last4Number.replace(/(.{2})(.{2})/, "$1-$2");
+    let number = 0;
+    const numberFrame = "+7" + " (983) " + "366-";
+
+    last4Number.length > 4
+      ? (number = numberFrame + separatedDigits.slice(0, 5))
+      : (number = numberFrame + separatedDigits);
+
+    return number;
+  }
+
   return (
     <>
       <div className="user-description">
@@ -16,6 +30,7 @@ export function UserDescription() {
               увеличивать продажи, используя самые современные аналитические
               инструменты.
             </p>
+            <br></br>
             <p>
               В работе с клиентами недостаточно просто решить конкретную
               проблему или помочь справиться с трудностями. Не менее важно
@@ -25,6 +40,7 @@ export function UserDescription() {
               после окончания проекта у клиента есть все необходимое, чтобы
               дальше развиваться самостоятельно".
             </p>
+            <br></br>
             <p>
               Помимо разнообразных проектов для клиентов финансового сектора,
               Сорин ведет активную предпринимательскую деятельность. Он является
@@ -34,7 +50,12 @@ export function UserDescription() {
             </p>
           </div>
 
-          <div className="user-conact-bar">Contacts</div>
+          <div className="user-conact-bar">
+            <div className="user-contact-bar__wrapper">
+              <p className="number">{createNumberById()}</p>
+              <p className="mail">{email}</p>
+            </div>
+          </div>
         </div>
       </div>
     </>

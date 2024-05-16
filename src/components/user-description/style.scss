@@ -9,3 +9,9 @@
     max-width: 630px;
   }
 }
+
+.user-contact-bar__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

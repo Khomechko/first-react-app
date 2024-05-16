@@ -24,7 +24,6 @@ export const Partner = () => {
   if (!user) {
     return "";
   }
-
   return (
     <>
       <div className="header">
@@ -47,7 +46,7 @@ export const Partner = () => {
         </div>
         <MainButton>Выход</MainButton>
       </div>
-      <UserDescription title={{ h1: `${id}` }} />
+      <UserDescription id={id} email={user.email} />
     </>
   );
 };
