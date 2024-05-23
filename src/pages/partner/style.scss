@@ -1,7 +1,6 @@
 .user-profile {
   display: flex;
   justify-content: left;
-  width: auto;
   width: 100%;
   padding: 0 29px;
 
@@ -17,8 +16,15 @@
     gap: 16px;
     max-height: 150px;
   }
+
   &__subtitle {
     text-align: left;
     font-size: 32px;
+  }
+
+  &__avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
   }
 }

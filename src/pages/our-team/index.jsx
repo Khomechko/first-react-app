@@ -19,7 +19,6 @@ export function OurTeam() {
         <MainButton>Выход</MainButton>
       </div>
       <UserList />
-      <div className="footer" style={{ height: "40px" }}></div>
     </>
   );
 }

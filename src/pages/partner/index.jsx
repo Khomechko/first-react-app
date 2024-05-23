@@ -32,12 +32,7 @@ export const Partner = () => {
         </Link>
         <div className="user-profile">
           <div className="user-profile__inner">
-            <img
-              src={user.avatar}
-              alt=""
-              className="card__avatar"
-              style={{ width: "150px", height: "150px" }}
-            />
+            <img src={user.avatar} alt="" className="user-profile__avatar" />
             <div className="user-profile__description">
               <h1 className="title">
                 {user.first_name + " " + user.last_name}

@@ -13,6 +13,7 @@ export function App() {
           <Route path="/partner/:id" element={<Partner />} />
         </Routes>
       </BrowserRouter>
+      <div className="footer"></div>
     </div>
   );
 }

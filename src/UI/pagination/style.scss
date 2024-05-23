@@ -1,9 +1,13 @@
 @import "/src/UI/colors/style.scss";
 
-.pagination-button {
-  padding: 5px;
-  border-radius: 8px;
-  background-color: $transparent;
-  border-width: 1px;
-  border-color: #151317;
+.pagination {
+  margin: auto;
+
+  &__button {
+    padding: 5px;
+    border-radius: 8px;
+    background-color: $transparent;
+    border-width: 1px;
+    border-color: #151317;
+  }
 }

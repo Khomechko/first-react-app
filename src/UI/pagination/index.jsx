@@ -7,13 +7,13 @@ export const Pagination = ({
   showLessHandler,
 }) => {
   return (
-    <div className="pagination-wrapper" style={{ margin: "auto" }}>
+    <div className="pagination">
       {page < totalPage ? (
-        <button className="pagination-button" onClick={showMoreHandler}>
+        <button className="pagination__button" onClick={showMoreHandler}>
           Показать ещё
         </button>
       ) : (
-        <button className="pagination-button" onClick={showLessHandler}>
+        <button className="pagination__button" onClick={showLessHandler}>
           Скрыть
         </button>
       )}
