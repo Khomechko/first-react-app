@@ -1,39 +1,12 @@
-import { useEffect } from "react";
 import { UserCard } from "../user-card";
-import { useState } from "react";
 import { Pagination } from "../../ui/pagination";
+import { ErrorModal } from "../../ui/modals/error-modal";
+import { useGetUsersWithPagination } from "../../hooks/useGetUsersWithPagination";
 import "./style.scss";
 
 export const UserList = () => {
-  // const { users, fetchUsers } = useGetUser();
-  // const { page, setPage } = useGetUser();
-  const [users, setUser] = useState([]);
-  const [page, setPage] = useState(1);
-  const [totlaPage, setTotalPage] = useState(0);
-
-  async function fetchUsers(isShowLess) {
-    await fetch(`https://reqres.in/api/users?page=${page}&per_page=8/`)
-      .then((response) => response.json())
-      .then((data) => {
-        if (isShowLess) {
-          setUser(data.data);
-        } else setUser((pre) => [...pre, ...data.data]);
-        setTotalPage(data.total_pages);
-      })
-      .catch((error) => console.log("Error", error));
-  }
-
-  const showLessHandler = () => {
-    setPage(1);
-  };
-
-  const showMoreHandler = () => {
-    setPage((prew) => prew + 1);
-  };
-
-  useEffect(() => {
-    fetchUsers(page === 1);
-  }, [page]);
+  const { users, showLessHandler, showMoreHandler, totalPage, page } =
+    useGetUsersWithPagination();
 
   return (
     <div className="user-list-wrapper">
@@ -49,7 +22,7 @@ export const UserList = () => {
       </div>
       <Pagination
         page={page}
-        totalPage={totlaPage}
+        totalPage={totalPage}
         showMoreHandler={showMoreHandler}
         showLessHandler={showLessHandler}
       />
