@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { MainButton } from "../../ui/main-button";
 import { UserDescription } from "../../components/user-description";
 
@@ -8,6 +8,7 @@ import "./style.scss";
 export const Partner = () => {
   const { id } = useParams();
   const [user, setUser] = useState();
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function getUser() {
@@ -27,9 +28,7 @@ export const Partner = () => {
   return (
     <>
       <div className="header">
-        <Link to={"/"}>
-          <MainButton>Назад</MainButton>
-        </Link>
+        <MainButton onClick={() => navigate(-1)}>Назад</MainButton>
         <div className="user-profile">
           <div className="user-profile__inner">
             <img src={user.avatar} alt="" className="user-profile__avatar" />

@@ -1,5 +1,11 @@
 import "./style.scss";
 
-export const MainButton = (props) => {
-  return <button className="main-button">{props.children}</button>;
+export const MainButton = ({ children, onClick }) => {
+  return (
+    <div className="main-button__container">
+      <button className="main-button" onClick={onClick}>
+        {children}
+      </button>
+    </div>
+  );
 };
