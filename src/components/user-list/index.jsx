@@ -5,11 +5,28 @@ import { useGetUsersWithPagination } from "../../hooks/useGetUsersWithPagination
 import "./style.scss";
 
 export const UserList = () => {
-  const { users, showLessHandler, showMoreHandler, totalPage, page } =
-    useGetUsersWithPagination();
+  const {
+    users,
+    showLessHandler,
+    showMoreHandler,
+    totalPage,
+    page,
+    modal,
+    setModal,
+    errorMessage,
+  } = useGetUsersWithPagination();
+
+  let textModal = "";
+
+  if (errorMessage === "Failed to fetch") {
+    textModal = "Неудалось получить пользователей";
+  } else textModal = "Ошибка сервера";
 
   return (
     <div className="user-list-wrapper">
+      <ErrorModal visible={modal} setVisible={setModal}>
+        {textModal}
+      </ErrorModal>
       <div className="user-list">
         {users.map((item) => (
           <UserCard

@@ -4,7 +4,8 @@ export const useGetUsersWithPagination = () => {
   const [users, setUser] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPage, setTotalPage] = useState(0);
-  const [isError, setIsError] = useState(false);
+  const [modal, setModal] = useState(false);
+  const [errorMessage, setErrorMessage] = useState();
 
   async function fetchUsers(isShowLess) {
     await fetch(`https://reqres.in/api/users?page=${page}&per_page=8/`)
@@ -16,8 +17,9 @@ export const useGetUsersWithPagination = () => {
         setTotalPage(data.total_pages);
       })
       .catch((error) => {
-        console.log("Error", error);
-        setIsError(true);
+        console.log("Error", error.message);
+        setErrorMessage(error.message);
+        setModal(true);
       });
   }
 
@@ -33,5 +35,14 @@ export const useGetUsersWithPagination = () => {
     fetchUsers(page === 1);
   }, [page]);
 
-  return { showLessHandler, showMoreHandler, users, totalPage, page };
+  return {
+    showLessHandler,
+    showMoreHandler,
+    users,
+    totalPage,
+    page,
+    modal,
+    setModal,
+    errorMessage,
+  };
 };
