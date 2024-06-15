@@ -36,9 +36,52 @@ h2 {
   padding: 64px 80px;
   color: #ffffff;
   background-color: $accent;
-  max-height: 290px;
+  height: 270px;
 }
 
 .footer {
   height: 40px;
+}
+
+@media (max-width: 929px) {
+  .title {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 720px) {
+  .header {
+    padding: 48px 20px;
+  }
+  .user-list {
+    padding-top: 32px;
+    padding-inline: 20px 20px;
+  }
+}
+
+@media (max-width: 532px) {
+  .header {
+    height: 230px;
+    flex-direction: column;
+    padding: 20px 10px;
+    justify-content: space-between;
+  }
+  .user-list {
+    padding-top: 20px;
+    padding-inline: 10px 10px;
+  }
+  .title {
+    font-size: 32px;
+  }
+  .header__mobile-button-block {
+    display: flex;
+    justify-content: space-between;
+    order: -1;
+  }
+}
+
+@media (min-width: 533px) {
+  .header__mobile-button-block {
+    display: none;
+  }
 }

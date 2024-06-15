@@ -2,9 +2,9 @@
 
 .card {
   background-color: #ffffff;
-  width: 305px;
+  width: 260px;
   border-radius: 10px;
-  padding: 36px 80px 20px;
+  padding: 36px 0 20px;
   margin-bottom: 20px;
   border: 1px solid $frame;
   display: flex;
@@ -25,9 +25,26 @@
 }
 
 .like {
-  width: 265px;
-  display: flex;
-  justify-content: flex-end;
   position: absolute;
-  bottom: 18px;
+  bottom: 15px;
+  right: 15px;
+}
+
+@media (max-width: 532px) {
+  .card {
+    width: 150px;
+    padding: 28px 0 16px;
+
+    &__avatar {
+      width: 80px;
+      height: 80px;
+    }
+    &__name {
+      font-size: 14px;
+    }
+  }
+  .like {
+    bottom: 135px;
+    right: 15px;
+  }
 }

@@ -17,6 +17,10 @@ export function OurTeam() {
           </h2>
         </div>
         <MainButton>Выход</MainButton>
+        <div className="header__mobile-button-block">
+          <div className="fake-button fake-button--mobile"></div>
+          <MainButton classNameModifier="mobile">Выход</MainButton>
+        </div>
       </div>
       <UserList />
     </>
