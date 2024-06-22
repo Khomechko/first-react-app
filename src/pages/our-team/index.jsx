@@ -1,27 +1,14 @@
 import React from "react";
-import { UserList } from "../../components/user-list";
-import { MainButton } from "../../ui/main-button";
 import "./style.scss";
+import { UserList } from "../../components/user-list";
+import { HelloBanner } from "../../components/hello-banner";
+import { Header } from "../../components/header";
 
 export function OurTeam() {
   return (
     <>
-      <div className="header">
-        <div className="fake-button"></div>
-        <div className="hello-banner">
-          <h1 className="title">Наша команда</h1>
-          <h2 className="hello-banner__subtitle">
-            Это опытные специалисты, хорошо разбирающиеся во всех задачах,
-            которые ложатся на их плечи, и умеющие находить выход из любых, даже
-            самых сложных ситуаций.
-          </h2>
-        </div>
-        <MainButton>Выход</MainButton>
-        <div className="header__mobile-button-block">
-          <div className="fake-button fake-button--mobile"></div>
-          <MainButton classNameModifier="mobile">Выход</MainButton>
-        </div>
-      </div>
+      <Header />
+      <HelloBanner />
       <UserList />
     </>
   );

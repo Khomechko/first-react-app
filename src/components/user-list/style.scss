@@ -12,3 +12,17 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
+
+@media (max-width: 720px) {
+  .user-list {
+    padding-top: 32px;
+    padding-inline: 20px 20px;
+  }
+}
+
+@media (max-width: 532px) {
+  .user-list {
+    padding-top: 20px;
+    padding-inline: 10px 10px;
+  }
+}

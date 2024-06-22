@@ -1,0 +1,22 @@
+@import "../../ui/colors/style.scss";
+
+.header {
+  display: flex;
+  justify-content: end;
+  position: relative;
+  padding: 32px 80px 0 80px;
+  color: #ffffff;
+  background-color: $accent;
+}
+
+@media (max-width: 720px) {
+  .header {
+    padding-inline: 20px;
+  }
+}
+
+@media (max-width: 532px) {
+  .header {
+    padding: 20px 10px 0 10px;
+  }
+}

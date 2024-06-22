@@ -1,0 +1,42 @@
+@import "../../ui/colors/style.scss";
+
+.hello-banner {
+  padding: 0 80px 64px 80px;
+  color: #ffffff;
+  background-color: $accent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 846px;
+    min-width: 280px;
+  }
+}
+
+@media (max-width: 900px) {
+  .hello-banner {
+    &__subtitle {
+      font-size: 16px;
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  .hello-banner {
+    padding: 0 20px 32px 20px;
+  }
+}
+
+@media (max-width: 532px) {
+  .hello-banner {
+    padding: 0 10px 20px 10px;
+    gap: 8px;
+    &__subtitle {
+      font-size: 12px;
+    }
+  }
+}
