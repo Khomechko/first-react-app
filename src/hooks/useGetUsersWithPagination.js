@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
+import { useBoolState } from "./useBoolState";
 
 export const useGetUsersWithPagination = () => {
   const [users, setUser] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPage, setTotalPage] = useState(0);
-  const [modal, setModal] = useState(false);
+  const { setTrue, setFalse, value } = useBoolState(false);
   const [errorMessage, setErrorMessage] = useState();
 
   async function fetchUsers(isShowLess) {
@@ -19,9 +20,11 @@ export const useGetUsersWithPagination = () => {
       .catch((error) => {
         console.log("Error", error.message);
         setErrorMessage(error.message);
-        setModal(true);
+        setTrue();
       });
   }
+
+  const hideModal = () => setFalse();
 
   const showLessHandler = () => {
     setPage(1);
@@ -41,8 +44,8 @@ export const useGetUsersWithPagination = () => {
     users,
     totalPage,
     page,
-    modal,
-    setModal,
+    hideModal,
+    value,
     errorMessage,
   };
 };

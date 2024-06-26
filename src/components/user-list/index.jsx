@@ -11,8 +11,8 @@ export const UserList = () => {
     showMoreHandler,
     totalPage,
     page,
-    modal,
-    setModal,
+    value,
+    hideModal,
     errorMessage,
   } = useGetUsersWithPagination();
 
@@ -24,7 +24,7 @@ export const UserList = () => {
 
   return (
     <div className="user-list-wrapper">
-      <ErrorModal visible={modal} setVisible={setModal}>
+      <ErrorModal value={value} hideModal={hideModal}>
         {textModal}
       </ErrorModal>
       <div className="user-list">

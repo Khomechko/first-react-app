@@ -1,22 +1,16 @@
 import "./style.scss";
 import React from "react";
 
-export const ErrorModal = ({ children, visible, setVisible }) => {
+export const ErrorModal = ({ children, value, hideModal }) => {
   return (
-    <div
-      className={`error-modal${visible ? " active" : ""}`}
-      onClick={() => setVisible(false)}
-    >
+    <div className={`error-modal${value ? " active" : ""}`} onClick={hideModal}>
       <div
         className="error-modal__content"
         onClick={(e) => e.stopPropagation()}
       >
         {children}
         <div>
-          <button
-            className="error-modal__button"
-            onClick={() => setVisible(false)}
-          >
+          <button className="error-modal__button" onClick={hideModal}>
             Закрыть
           </button>
         </div>
