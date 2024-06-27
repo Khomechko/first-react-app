@@ -1,19 +1,15 @@
 import { useState } from "react";
 
-export const useBoolState = (defaultValue) => {
-  const [value, setValue] = useState(defaultValue);
+export const useBoolState = (defaultBoolValue) => {
+  const [boolValue, setBoolValue] = useState(defaultBoolValue);
 
   const setTrue = () => {
-    setValue(true);
+    setBoolValue(true);
   };
 
   const setFalse = () => {
-    setValue(false);
+    setBoolValue(false);
   };
 
-  const toggle = () => {
-    setValue((x) => !x);
-  };
-
-  return { value, setValue, setTrue, setFalse, toggle };
+  return [boolValue, setTrue, setFalse];
 };
