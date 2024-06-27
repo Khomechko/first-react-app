@@ -15,7 +15,7 @@ export const Like = (props) => {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem(props.id, value);
+    localStorage.setItem(props.id, active);
   }, [active]);
 
   return (
