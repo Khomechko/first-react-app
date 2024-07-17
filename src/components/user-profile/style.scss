@@ -2,12 +2,12 @@
   display: flex;
   justify-content: left;
   width: 100%;
-  padding: 0 29px;
 
   &__inner {
     display: flex;
     flex-direction: row;
     gap: 32px;
+    padding-left: 108px;
   }
 
   &__description {
@@ -26,5 +26,29 @@
     width: 150px;
     height: 150px;
     border-radius: 100%;
+  }
+}
+
+@media (max-width: 929px) {
+  .user-profile {
+    &__inner {
+      padding-left: 0;
+    }
+  }
+}
+
+@media (max-width: 532px) {
+  .user-profile {
+    justify-content: center;
+    &__subtitle {
+      font-size: 20px;
+    }
+    &__inner {
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+    &__description {
+      align-items: center;
+    }
   }
 }

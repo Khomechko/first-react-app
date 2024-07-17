@@ -8,9 +8,9 @@ export const Header = (props) => {
   const { isOurTeam, ...rest } = props;
 
   return (
-    <header>
+    <header className={!isOurTeam ? "header header--mobile" : ""}>
       {isOurTeam ? <HelloBanner /> : <UserProfile {...rest} />}
-      <MainButton classNameModifier={"header"}>Выход</MainButton>
+      <MainButton classNameModifier={"right-side"}>Выход</MainButton>
     </header>
   );
 };

@@ -1,7 +1,7 @@
 .user-description {
   padding: 48px 80px 0 80px;
 
-  &__wrapper {
+  &__inner {
     display: flex;
     gap: 200px;
   }
@@ -10,8 +10,25 @@
   }
 }
 
-.user-contact-bar__wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+@media (max-width: 929px) {
+  .user-description {
+    &__inner {
+      gap: 100px;
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  .user-description {
+    &__inner {
+      gap: 48px;
+      flex-direction: column-reverse;
+    }
+  }
+}
+
+@media (max-width: 532px) {
+  .user-description {
+    padding: 48px 20px 0 20px;
+  }
 }

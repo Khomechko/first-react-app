@@ -8,7 +8,9 @@ export const UserProfile = ({ firstName, lastName, avatar }) => {
 
   return (
     <div className="user-profile">
-      <MainButton onClick={() => navigate(-1)}>Назад</MainButton>
+      <MainButton onClick={() => navigate(-1)} classNameModifier={"left-side"}>
+        Назад
+      </MainButton>
       <div className="user-profile__inner">
         <img src={avatar} alt="" className="user-profile__avatar" />
         <div className="user-profile__description">

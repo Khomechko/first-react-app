@@ -8,20 +8,20 @@
   left: 0;
   display: none;
   z-index: 1;
-  background: rgba($color: #000000, $alpha: 0.5);
+  background: $translucent;
 
   &__button {
     padding: 5px;
     border-radius: 8px;
     background-color: $transparent;
     border-width: 1px;
-    border-color: #151317;
+    border-color: $border;
   }
 
   &__content {
     padding: 20px;
-    background-color: white;
-    border: 1px solid $frame;
+    background-color: $modal-background;
+    border: 1px solid $border;
     border-radius: 5px;
     min-width: 250px;
     display: flex;
