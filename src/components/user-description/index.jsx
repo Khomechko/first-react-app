@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.scss";
+import { UserContact } from "../../ui/user-contact";
 
 export function UserDescription({ id, email }) {
   function createNumberById() {
@@ -19,7 +20,7 @@ export function UserDescription({ id, email }) {
   return (
     <>
       <div className="user-description">
-        <div className="user-description__wrapper">
+        <div className="user-description__inner">
           <div className="user-description__text">
             <p>
               Клиенты видят в нем эксперта по вопросам разработки комплексных
@@ -49,13 +50,7 @@ export function UserDescription({ id, email }) {
               других бизнес-проектов.
             </p>
           </div>
-
-          <div className="user-conact-bar">
-            <div className="user-contact-bar__wrapper">
-              <p className="number">{createNumberById()}</p>
-              <p className="mail">{email}</p>
-            </div>
-          </div>
+          <UserContact createNumberById={createNumberById} email={email} />
         </div>
       </div>
     </>
