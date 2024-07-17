@@ -19,7 +19,7 @@ export const UserList = () => {
   let textModal = "";
 
   if (errorMessage === "Failed to fetch") {
-    textModal = "Неудалось получить пользователей";
+    textModal = "Не удалось получить пользователей";
   } else textModal = "Ошибка сервера";
 
   return (
