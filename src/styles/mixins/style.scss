@@ -1,0 +1,11 @@
+$breakpoints: (
+  "phone": 532px,
+  "tablet": 720px,
+  "laptop": 929px,
+);
+
+@mixin resolution($breakpoint) {
+  @media (max-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
