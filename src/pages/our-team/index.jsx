@@ -1,4 +1,3 @@
-import "./style.scss";
 import { UserList } from "../../components/user-list";
 import { Header } from "../../components/header";
 

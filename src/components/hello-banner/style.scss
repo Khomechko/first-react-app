@@ -1,4 +1,5 @@
-@import "../../ui/colors/style.scss";
+@import "/src/styles/colors/style.scss";
+@import "/src/styles/mixins/style.scss";
 
 .hello-banner {
   display: flex;
@@ -7,20 +8,12 @@
   gap: 16px;
   max-width: 846px;
   min-width: 280px;
-}
-
-@media (max-width: 900px) {
-  .hello-banner {
-    &__subtitle {
-      font-size: 16px;
-    }
-  }
-}
-
-@media (max-width: 532px) {
-  .hello-banner {
-    &__subtitle {
+  &__subtitle {
+    @include resolution("phone") {
       font-size: 12px;
+    }
+    @include resolution("laptop") {
+      font-size: 16px;
     }
   }
 }

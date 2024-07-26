@@ -1,4 +1,5 @@
-@import "/src/UI/colors/style.scss";
+@import "/src/styles/colors/style.scss";
+@import "/src/styles/mixins/style.scss";
 
 .card {
   width: 260px;
@@ -11,11 +12,23 @@
   align-items: center;
   gap: 16px;
   position: relative;
-
+  @include resolution("phone") {
+    width: 150px;
+    padding: 28px 0 16px;
+  }
   &__avatar {
     width: 124px;
     height: 124px;
     border-radius: 100%;
+    @include resolution("phone") {
+      width: 80px;
+      height: 80px;
+    }
+    &__name {
+      @include resolution("phone") {
+        font-size: 14px;
+      }
+    }
   }
 }
 
@@ -27,22 +40,7 @@
   position: absolute;
   bottom: 15px;
   right: 15px;
-}
-
-@media (max-width: 532px) {
-  .card {
-    width: 150px;
-    padding: 28px 0 16px;
-
-    &__avatar {
-      width: 80px;
-      height: 80px;
-    }
-    &__name {
-      font-size: 14px;
-    }
-  }
-  .like {
+  @include resolution("phone") {
     bottom: 135px;
     right: 15px;
   }
