@@ -1,4 +1,5 @@
-@import "/src/UI/colors/style.scss";
+@import "/src/styles/colors/style.scss";
+@import "/src/styles/mixins/style.scss";
 
 .user-list-wrapper {
   display: flex;
@@ -11,18 +12,12 @@
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-}
-
-@media (max-width: 720px) {
-  .user-list {
-    padding-top: 32px;
-    padding-inline: 20px 20px;
-  }
-}
-
-@media (max-width: 532px) {
-  .user-list {
+  @include resolution("phone") {
     padding-top: 20px;
     padding-inline: 10px 10px;
+  }
+  @include resolution("tablet") {
+    padding-top: 32px;
+    padding-inline: 20px 20px;
   }
 }

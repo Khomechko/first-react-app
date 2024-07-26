@@ -1,13 +1,25 @@
+@import "/src/styles/mixins/style.scss";
+
 .user-profile {
   display: flex;
   justify-content: left;
   width: 100%;
+  @include resolution("phone") {
+    justify-content: center;
+  }
 
   &__inner {
     display: flex;
     flex-direction: row;
     gap: 32px;
     padding-left: 108px;
+    @include resolution("laptop") {
+      padding-left: 0;
+    }
+    @include resolution("phone") {
+      flex-direction: column-reverse;
+      align-items: center;
+    }
   }
 
   &__description {
@@ -15,40 +27,22 @@
     flex-direction: column;
     gap: 16px;
     max-height: 150px;
+    @include resolution("phone") {
+      align-items: center;
+    }
   }
 
   &__subtitle {
     text-align: left;
     font-size: 32px;
+    @include resolution("phone") {
+      font-size: 20px;
+    }
   }
 
   &__avatar {
     width: 150px;
     height: 150px;
     border-radius: 100%;
-  }
-}
-
-@media (max-width: 929px) {
-  .user-profile {
-    &__inner {
-      padding-left: 0;
-    }
-  }
-}
-
-@media (max-width: 532px) {
-  .user-profile {
-    justify-content: center;
-    &__subtitle {
-      font-size: 20px;
-    }
-    &__inner {
-      flex-direction: column-reverse;
-      align-items: center;
-    }
-    &__description {
-      align-items: center;
-    }
   }
 }

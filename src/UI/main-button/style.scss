@@ -1,4 +1,5 @@
-@import "../colors/style.scss";
+@import "/src/styles/colors/style.scss";
+@import "/src/styles/mixins/style.scss";
 
 .main-button {
   font-size: 16px;
@@ -10,27 +11,21 @@
   border-width: 1px;
   position: absolute;
   top: 20px;
-
-  &--left-side {
-    left: 80px;
-  }
-  &--right-side {
-    right: 80px;
-  }
-}
-
-@media (max-width: 532px) {
-  .main-button {
+  @include resolution("phone") {
     font-size: 12px;
     padding: 4px 8px;
   }
-  .main-button--right-side {
-    right: 20px;
-  }
-}
 
-@media (max-width: 532px) {
-  .main-button--left-side {
-    left: 20px;
+  &--left-side {
+    left: 80px;
+    @include resolution("phone") {
+      left: 20px;
+    }
+  }
+  &--right-side {
+    right: 80px;
+    @include resolution("phone") {
+      right: 20px;
+    }
   }
 }
