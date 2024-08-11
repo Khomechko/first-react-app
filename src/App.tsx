@@ -1,4 +1,3 @@
-import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Partner } from "./pages/partner";
 import { OurTeam } from "./pages/our-team";

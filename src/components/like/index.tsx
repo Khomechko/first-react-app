@@ -2,20 +2,25 @@ import { LikeLogoActive } from "../../ui/logo/LIkeLogoActive";
 import { LikeLogo } from "../../ui/logo/LikeLogo";
 import { useEffect, useState } from "react";
 
-export const Like = (props) => {
+type Props = {
+  id: number;
+};
+
+export const Like = ({ id }: Props) => {
   const [active, setActive] = useState(false);
+  const stringId = id.toString();
 
   const toLike = () => {
     setActive((prev) => !prev);
   };
 
   useEffect(() => {
-    const raw = localStorage.getItem(props.id);
+    const raw = localStorage.getItem(stringId) || "";
     setActive(JSON.parse(raw));
   }, []);
 
   useEffect(() => {
-    localStorage.setItem(props.id, active);
+    localStorage.setItem(stringId, active.toString());
   }, [active]);
 
   return (

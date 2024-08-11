@@ -1,9 +1,11 @@
-import React from "react";
 import { MainButton } from "../../ui/main-button";
 import { useNavigate } from "react-router-dom";
+import { HeaderProps } from "../header";
 import "./style.scss";
 
-export const UserProfile = ({ firstName, lastName, avatar }) => {
+type Props = Omit<HeaderProps, "isOurTeam">;
+
+export const UserProfile = ({ firstName, lastName, avatar }: Props) => {
   const navigate = useNavigate();
 
   return (
