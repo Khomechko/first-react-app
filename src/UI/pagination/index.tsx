@@ -1,11 +1,18 @@
 import "./style.scss";
 
+type Props = {
+  page: number;
+  totalPage: number;
+  showMoreHandler: () => void;
+  showLessHandler: () => void;
+};
+
 export const Pagination = ({
   page,
   totalPage,
   showMoreHandler,
   showLessHandler,
-}) => {
+}: Props) => {
   return (
     <div className="pagination">
       {page < totalPage ? (

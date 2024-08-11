@@ -1,13 +1,17 @@
-import React from "react";
 import "./style.scss";
 import { UserContact } from "../../ui/user-contact";
 
-export function UserDescription({ id, email }) {
-  function createNumberById() {
+type Props = {
+  id?: string;
+  email: string;
+};
+
+export function UserDescription({ id, email }: Props) {
+  function createNumberById(): string {
     // лаконичность этой функции не поражает, но она работает
     const last4Number = id + "544";
     const separatedDigits = last4Number.replace(/(.{2})(.{2})/, "$1-$2");
-    let number = 0;
+    let number: string = "0";
     const numberFrame = "+7" + " (983) " + "366-";
 
     last4Number.length > 4

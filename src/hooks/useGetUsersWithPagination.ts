@@ -1,14 +1,21 @@
 import { useEffect, useState } from "react";
 import { useBoolState } from "./useBoolState";
+import { User } from "./useGetUsers";
+
+interface Modal {
+  modal: boolean;
+  showModal: () => void;
+  hideModal: () => void;
+}
 
 export const useGetUsersWithPagination = () => {
-  const [users, setUser] = useState([]);
+  const [users, setUser] = useState<User[]>([]);
   const [page, setPage] = useState(1);
   const [totalPage, setTotalPage] = useState(0);
   const [modal, showModal, hideModal] = useBoolState(false);
   const [errorMessage, setErrorMessage] = useState();
 
-  async function fetchUsers(isShowLess) {
+  async function fetchUsers(isShowLess: boolean) {
     await fetch(`https://reqres.in/api/users?page=${page}&per_page=8/`)
       .then((response) => response.json())
       .then((data) => {
@@ -23,7 +30,6 @@ export const useGetUsersWithPagination = () => {
         showModal();
       });
   }
-
   const showLessHandler = () => {
     setPage(1);
   };

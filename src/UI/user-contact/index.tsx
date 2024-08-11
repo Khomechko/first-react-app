@@ -1,6 +1,11 @@
 import "./style.scss";
 
-export const UserContact = ({ createNumberById, email }) => {
+type Props = {
+  createNumberById: () => string;
+  email: string;
+};
+
+export const UserContact = ({ createNumberById, email }: Props) => {
   return (
     <div className="user-contact">
       <p className="number">{createNumberById()}</p>

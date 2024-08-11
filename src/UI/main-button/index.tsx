@@ -1,6 +1,13 @@
+import React from "react";
 import "./style.scss";
 
-export const MainButton = ({ children, onClick, classNameModifier }) => {
+type Props = {
+  children: React.ReactNode;
+  classNameModifier?: string;
+  onClick?: () => void;
+};
+
+export const MainButton = ({ children, onClick, classNameModifier }: Props) => {
   return (
     <>
       <button
