@@ -8,18 +8,19 @@ type Props = {
 
 export const Like = ({ id }: Props) => {
   const [active, setActive] = useState(false);
+  const stringId = id.toString();
 
   const toLike = () => {
     setActive((prev) => !prev);
   };
 
   useEffect(() => {
-    const raw = localStorage.getItem(id.toString()) || "";
+    const raw = localStorage.getItem(stringId) || "";
     setActive(JSON.parse(raw));
   }, []);
 
   useEffect(() => {
-    localStorage.setItem(id.toString(), active.toString());
+    localStorage.setItem(stringId, active.toString());
   }, [active]);
 
   return (
