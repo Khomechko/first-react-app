@@ -5,17 +5,14 @@ import "./style.scss";
 
 export type HeaderProps = {
   isOurTeam?: boolean;
-  firstName?: string;
-  lastName?: string;
-  avatar?: string;
 };
 
-export const Header = (headerProps: HeaderProps) => {
-  const { isOurTeam, ...rest } = headerProps;
+export const Header = (props: HeaderProps) => {
+  const { isOurTeam } = props;
 
   return (
     <header className={!isOurTeam ? "header header--mobile" : ""}>
-      {isOurTeam ? <HelloBanner /> : <UserProfile {...rest} />}
+      {isOurTeam ? <HelloBanner /> : <UserProfile />}
       <MainButton classNameModifier={"right-side"}>Выход</MainButton>
     </header>
   );
