@@ -2,7 +2,7 @@ import "./style.scss";
 
 type Props = {
   createNumberById: () => string;
-  email: string;
+  email: string | undefined;
 };
 
 export const UserContact = ({ createNumberById, email }: Props) => {

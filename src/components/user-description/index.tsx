@@ -1,12 +1,16 @@
 import "./style.scss";
 import { UserContact } from "../../ui/user-contact";
+import { useContext } from "react";
+import { UsersContext } from "../../pages/partner";
+import { User } from "../../hooks/useGetUsers";
 
 type Props = {
   id?: string;
-  email: string;
 };
 
-export function UserDescription({ id, email }: Props) {
+export function UserDescription({ id }: Props) {
+  const user = useContext(UsersContext);
+
   function createNumberById(): string {
     // лаконичность этой функции не поражает, но она работает
     const last4Number = id + "544";
@@ -54,7 +58,10 @@ export function UserDescription({ id, email }: Props) {
               других бизнес-проектов.
             </p>
           </div>
-          <UserContact createNumberById={createNumberById} email={email} />
+          <UserContact
+            createNumberById={createNumberById}
+            email={user?.email}
+          />
         </div>
       </div>
     </>
