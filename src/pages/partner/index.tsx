@@ -1,15 +1,12 @@
 import { UserDescription } from "../../components/user-description";
 import { Header } from "../../components/header";
-import { useGetUsers } from "../../hooks/useGetUsers";
+import { useGetUsers, User } from "../../hooks/useGetUsers";
+import { createContext } from "react";
+
+export const UsersContext = createContext<User | undefined>(undefined);
 
 export const Partner = () => {
   const { id, user } = useGetUsers();
-
-  const headerProps = {
-    firstName: user?.first_name,
-    lastName: user?.last_name,
-    avatar: user?.avatar,
-  };
 
   if (!user) {
     return null;
@@ -17,8 +14,10 @@ export const Partner = () => {
 
   return (
     <>
-      <Header {...headerProps} />
-      <UserDescription id={id} email={user?.email} />
+      <UsersContext.Provider value={user}>
+        <Header />
+        <UserDescription id={id} />
+      </UsersContext.Provider>
     </>
   );
 };
