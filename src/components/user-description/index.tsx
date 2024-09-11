@@ -1,29 +1,11 @@
 import "./style.scss";
 import { UserContact } from "../../ui/user-contact";
-import { useContext } from "react";
-import { UsersContext } from "../../pages/partner";
-import { User } from "../../hooks/useGetUsers";
+import { createNumberById } from "..//..//helpers/createNumberByIds";
+import { useGetUserById } from "../../hooks/useGetUserById";
 
-type Props = {
-  id?: string;
-};
-
-export function UserDescription({ id }: Props) {
-  const user = useContext(UsersContext);
-
-  function createNumberById(): string {
-    // лаконичность этой функции не поражает, но она работает
-    const last4Number = id + "544";
-    const separatedDigits = last4Number.replace(/(.{2})(.{2})/, "$1-$2");
-    let number: string = "0";
-    const numberFrame = "+7" + " (983) " + "366-";
-
-    last4Number.length > 4
-      ? (number = numberFrame + separatedDigits.slice(0, 5))
-      : (number = numberFrame + separatedDigits);
-
-    return number;
-  }
+export function UserDescription() {
+  const user = useGetUserById();
+  const number = createNumberById(user.id);
 
   return (
     <>
@@ -52,16 +34,13 @@ export function UserDescription({ id }: Props) {
             <br></br>
             <p>
               Помимо разнообразных проектов для клиентов финансового сектора,
-              Сорин ведет активную предпринимательскую деятельность. Он является
-              совладельцем сети клиник эстетической медицины в Швейцарии,
-              предлагающей инновационный подход к красоте, а также инвестором
-              других бизнес-проектов.
+              {" " + user.first_name} ведет активную предпринимательскую
+              деятельность. Он является совладельцем сети клиник эстетической
+              медицины в Швейцарии, предлагающей инновационный подход к красоте,
+              а также инвестором других бизнес-проектов.
             </p>
           </div>
-          <UserContact
-            createNumberById={createNumberById}
-            email={user?.email}
-          />
+          <UserContact number={number} email={user.email} />
         </div>
       </div>
     </>

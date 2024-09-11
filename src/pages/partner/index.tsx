@@ -1,12 +1,9 @@
 import { UserDescription } from "../../components/user-description";
 import { Header } from "../../components/header";
-import { useGetUsers, User } from "../../hooks/useGetUsers";
-import { createContext } from "react";
-
-export const UsersContext = createContext<User | undefined>(undefined);
+import { useAppSelector } from "../../hooks/reduxHooks";
 
 export const Partner = () => {
-  const { id, user } = useGetUsers();
+  const user = useAppSelector((state) => state.user.userData.data);
 
   if (!user) {
     return null;
@@ -14,10 +11,8 @@ export const Partner = () => {
 
   return (
     <>
-      <UsersContext.Provider value={user}>
-        <Header />
-        <UserDescription id={id} />
-      </UsersContext.Provider>
+      <Header />
+      <UserDescription />
     </>
   );
 };

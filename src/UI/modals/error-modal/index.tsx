@@ -1,21 +1,38 @@
+import { useEffect, useState } from "react";
 import "./style.scss";
+import { useAppSelector } from "../../../hooks/reduxHooks";
 
 type Props = {
   children: React.ReactNode;
-  modal: boolean;
-  hideModal: () => void;
 };
 
-export const ErrorModal = ({ children, modal, hideModal }: Props) => {
+export const ErrorModal = ({ children }: Props) => {
+  const { error } = useAppSelector((state) => state.user);
+  const [modal, setModal] = useState(error);
+
+  useEffect(() => {
+    setModal(error);
+  }, [error]);
+
   return (
-    <div className={`error-modal${modal ? " active" : ""}`} onClick={hideModal}>
+    <div
+      className={`error-modal${modal !== "" ? " active" : ""}`}
+      onClick={() => {
+        setModal("");
+      }}
+    >
       <div
         className="error-modal__content"
         onClick={(e) => e.stopPropagation()}
       >
         {children}
         <div>
-          <button className="error-modal__button" onClick={hideModal}>
+          <button
+            className="error-modal__button"
+            onClick={() => {
+              setModal("");
+            }}
+          >
             Закрыть
           </button>
         </div>
