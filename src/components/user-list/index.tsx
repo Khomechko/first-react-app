@@ -1,5 +1,8 @@
 import { UserCard } from "../user-card";
-import { defaultValueOfUsersPerPage, Pagination } from "../../ui/pagination";
+import {
+  DEFAULT_VALUE_OF_USERS_PER_PAGE,
+  Pagination,
+} from "../../ui/pagination";
 import { ErrorModal } from "../../ui/modals/error-modal";
 import "./style.scss";
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
@@ -12,7 +15,7 @@ export const UserList = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(fetchUsers(defaultValueOfUsersPerPage));
+    dispatch(fetchUsers(DEFAULT_VALUE_OF_USERS_PER_PAGE));
   }, []);
 
   let textModal = "";

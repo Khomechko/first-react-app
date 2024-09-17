@@ -1,5 +1,5 @@
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { FetchUsersData, User } from "../../../models/fetch-user-types";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { FetchUsersData } from "../../../models/fetch-user-types";
 import { fetchUsers } from "../../../services/fetch-users";
 
 type UserState = {
