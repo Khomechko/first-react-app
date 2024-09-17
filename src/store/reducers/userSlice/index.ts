@@ -9,7 +9,7 @@ type UserState = {
 };
 
 const initialState: UserState = {
-  userData: { page: 0, per_page: 8, total: 0, total_pages: 0, data: [] },
+  userData: { page: 0, per_page: 8, total: 12, total_pages: 2, data: [] },
   isLoading: false,
   error: "",
 };
@@ -21,6 +21,13 @@ export const userSlice = createSlice({
     clearError: (state) => {
       state.error = "";
     },
+    setUsersToDefault: (state) => {
+      state.userData.data = state.userData.data.slice(
+        0,
+        state.userData.per_page
+      );
+      state.userData.page = 1;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchUsers.pending, (state) => {
@@ -30,7 +37,8 @@ export const userSlice = createSlice({
       fetchUsers.fulfilled,
       (state, action: PayloadAction<FetchUsersData>) => {
         state.isLoading = false;
-        state.userData = action.payload;
+        state.userData.data = [...state.userData.data, ...action.payload.data];
+        state.userData.page = state.userData.page + 1;
         state.error = "";
       }
     );
@@ -48,5 +56,5 @@ export const userSlice = createSlice({
   },
 });
 
-export const { clearError } = userSlice.actions;
+export const { clearError, setUsersToDefault } = userSlice.actions;
 export default userSlice.reducer;

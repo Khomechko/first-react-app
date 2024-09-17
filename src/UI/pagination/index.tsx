@@ -1,35 +1,30 @@
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 import { fetchUsers } from "../../services/fetch-users";
+import { setUsersToDefault } from "../../store/reducers/userSlice";
 import "./style.scss";
 
-export const DEFAULT_VALUE_OF_USERS_PER_PAGE = 8;
+export const DEFAULT_NUMBER_OF_PAGE = 1;
 
 export const Pagination = () => {
   const dispatch = useAppDispatch();
-  const { numberOfUsersPerPage, totalNumberOfUsers } = useAppSelector(
-    (state) => ({
-      numberOfUsersPerPage: state.user.userData.per_page,
-      totalNumberOfUsers: state.user.userData.total,
-    })
-  );
+  const { numberOfPage, numberOfTotalPage } = useAppSelector((state) => ({
+    numberOfPage: state.user.userData.page,
+    numberOfTotalPage: state.user.userData.total_pages,
+  }));
 
   return (
     <div className="pagination">
-      {numberOfUsersPerPage < totalNumberOfUsers ? (
+      {numberOfPage < numberOfTotalPage ? (
         <button
           className="pagination__button"
-          onClick={() =>
-            dispatch(
-              fetchUsers(numberOfUsersPerPage + DEFAULT_VALUE_OF_USERS_PER_PAGE)
-            )
-          }
+          onClick={() => dispatch(fetchUsers(numberOfPage + 1))}
         >
           Показать ещё
         </button>
       ) : (
         <button
           className="pagination__button"
-          onClick={() => dispatch(fetchUsers(DEFAULT_VALUE_OF_USERS_PER_PAGE))}
+          onClick={() => dispatch(setUsersToDefault())}
         >
           Скрыть
         </button>

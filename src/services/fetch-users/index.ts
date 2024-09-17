@@ -2,9 +2,9 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const fetchUsers = createAsyncThunk(
   "user/fetchUsers",
-  (numberOfUser: number) => {
-    return fetch(`https://reqres.in/api/users?per_page=${numberOfUser}`).then(
-      (response) => response.json()
-    );
+  (numberOfPage: number) => {
+    return fetch(
+      `https://reqres.in/api/users?per_page=8&page=${numberOfPage}`
+    ).then((response) => response.json());
   }
 );

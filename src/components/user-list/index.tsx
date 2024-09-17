@@ -1,21 +1,22 @@
 import { UserCard } from "../user-card";
-import {
-  DEFAULT_VALUE_OF_USERS_PER_PAGE,
-  Pagination,
-} from "../../ui/pagination";
+import { DEFAULT_NUMBER_OF_PAGE, Pagination } from "../../ui/pagination";
 import { ErrorModal } from "../../ui/modals/error-modal";
 import "./style.scss";
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 import { useEffect } from "react";
 import { fetchUsers } from "../../services/fetch-users";
+import { setUsersToDefault } from "../../store/reducers/userSlice";
 
 export const UserList = () => {
   const users = useAppSelector((state) => state.user.userData.data);
+  const page = useAppSelector((state) => state.user.userData.page);
   const errorMessage = useAppSelector((state) => state.user.error);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(fetchUsers(DEFAULT_VALUE_OF_USERS_PER_PAGE));
+    page === 0
+      ? dispatch(fetchUsers(DEFAULT_NUMBER_OF_PAGE))
+      : dispatch(setUsersToDefault());
   }, []);
 
   let textModal = "";
