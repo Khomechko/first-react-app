@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
 import "./style.scss";
-import { useAppSelector } from "../../../hooks/reduxHooks";
+import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
+import { clearError } from "../../../store/reducers/userSlice";
 
 type Props = {
   children: React.ReactNode;
@@ -8,17 +8,13 @@ type Props = {
 
 export const ErrorModal = ({ children }: Props) => {
   const { error } = useAppSelector((state) => state.user);
-  const [modal, setModal] = useState(error);
-
-  useEffect(() => {
-    setModal(error);
-  }, [error]);
+  const dispatch = useAppDispatch();
 
   return (
     <div
-      className={`error-modal${modal !== "" ? " active" : ""}`}
+      className={`error-modal${error !== "" ? " active" : ""}`}
       onClick={() => {
-        setModal("");
+        dispatch(clearError());
       }}
     >
       <div
@@ -30,7 +26,7 @@ export const ErrorModal = ({ children }: Props) => {
           <button
             className="error-modal__button"
             onClick={() => {
-              setModal("");
+              dispatch(clearError());
             }}
           >
             Закрыть

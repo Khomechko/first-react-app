@@ -17,7 +17,11 @@ const initialState: UserState = {
 export const userSlice = createSlice({
   name: "user",
   initialState,
-  reducers: {},
+  reducers: {
+    clearError: (state) => {
+      state.error = "";
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchUsers.pending, (state) => {
       state.isLoading = true;
@@ -44,4 +48,5 @@ export const userSlice = createSlice({
   },
 });
 
+export const { clearError } = userSlice.actions;
 export default userSlice.reducer;
