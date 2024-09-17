@@ -2,15 +2,15 @@ import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 import { fetchUsers } from "../../services/fetch-users";
 import "./style.scss";
 
-export const defaultValueOfUsersPerPage = 8;
+export const DEFAULT_VALUE_OF_USERS_PER_PAGE = 8;
 
 export const Pagination = () => {
   const dispatch = useAppDispatch();
-  const numberOfUsersPerPage = useAppSelector(
-    (state) => state.user.userData.per_page
-  );
-  const totalNumberOfUsers = useAppSelector(
-    (state) => state.user.userData.total
+  const { numberOfUsersPerPage, totalNumberOfUsers } = useAppSelector(
+    (state) => ({
+      numberOfUsersPerPage: state.user.userData.per_page,
+      totalNumberOfUsers: state.user.userData.total,
+    })
   );
 
   return (
@@ -20,7 +20,7 @@ export const Pagination = () => {
           className="pagination__button"
           onClick={() =>
             dispatch(
-              fetchUsers(numberOfUsersPerPage + defaultValueOfUsersPerPage)
+              fetchUsers(numberOfUsersPerPage + DEFAULT_VALUE_OF_USERS_PER_PAGE)
             )
           }
         >
@@ -29,7 +29,7 @@ export const Pagination = () => {
       ) : (
         <button
           className="pagination__button"
-          onClick={() => dispatch(fetchUsers(defaultValueOfUsersPerPage))}
+          onClick={() => dispatch(fetchUsers(DEFAULT_VALUE_OF_USERS_PER_PAGE))}
         >
           Скрыть
         </button>
