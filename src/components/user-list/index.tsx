@@ -5,16 +5,13 @@ import "./style.scss";
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 import { useEffect } from "react";
 import { fetchUsers } from "../../services/fetch-users";
-import { setUsersToDefault } from "../../store/reducers/userSlice";
 
 export const UserList = () => {
   const { users, page, error } = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    page === 0
-      ? dispatch(fetchUsers(DEFAULT_NUMBER_OF_PAGE))
-      : dispatch(setUsersToDefault());
+    page === 0 && dispatch(fetchUsers(DEFAULT_NUMBER_OF_PAGE));
   }, []);
 
   let textModal = "";
