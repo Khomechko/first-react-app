@@ -1,12 +1,11 @@
+import "./style.scss";
 import { MainButton } from "../../ui/main-button";
 import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
-import { UsersContext } from "../../pages/partner";
-import "./style.scss";
+import { useGetUserById } from "../../hooks/useGetUserById";
 
 export const UserProfile = () => {
   const navigate = useNavigate();
-  const user = useContext(UsersContext);
+  const user = useGetUserById();
 
   return (
     <div className="user-profile">

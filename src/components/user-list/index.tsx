@@ -1,34 +1,29 @@
 import { UserCard } from "../user-card";
-import { Pagination } from "../../ui/pagination";
+import { DEFAULT_NUMBER_OF_PAGE, Pagination } from "../../ui/pagination";
 import { ErrorModal } from "../../ui/modals/error-modal";
-import { useGetUsersWithPagination } from "../../hooks/useGetUsersWithPagination";
 import "./style.scss";
+import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
+import { useEffect } from "react";
+import { fetchUsers } from "../../services/fetch-users";
 
 export const UserList = () => {
-  const {
-    users,
-    showLessHandler,
-    showMoreHandler,
-    totalPage,
-    page,
-    modal,
-    hideModal,
-    errorMessage,
-  } = useGetUsersWithPagination();
+  const { users, page, error } = useAppSelector((state) => state.user);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    page === 0 && dispatch(fetchUsers(DEFAULT_NUMBER_OF_PAGE));
+  }, []);
 
   let textModal = "";
-
-  if (errorMessage === "Failed to fetch") {
+  if (error === "Failed to fetch") {
     textModal = "Не удалось получить пользователей";
   } else textModal = "Ошибка сервера";
 
   return (
     <div className="user-list-wrapper">
-      <ErrorModal modal={modal} hideModal={hideModal}>
-        {textModal}
-      </ErrorModal>
+      <ErrorModal>{textModal}</ErrorModal>
       <div className="user-list">
-        {users.map((item) => (
+        {users?.map((item) => (
           <UserCard
             title={item.first_name + " " + item.last_name}
             avatar={item.avatar}
@@ -37,12 +32,7 @@ export const UserList = () => {
           />
         ))}
       </div>
-      <Pagination
-        page={page}
-        totalPage={totalPage}
-        showMoreHandler={showMoreHandler}
-        showLessHandler={showLessHandler}
-      />
+      <Pagination />
     </div>
   );
 };
