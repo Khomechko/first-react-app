@@ -3,7 +3,7 @@ import { Header } from "../../components/header";
 import { useAppSelector } from "../../hooks/reduxHooks";
 
 export const Partner = () => {
-  const user = useAppSelector((state) => state.user.userData.data);
+  const user = useAppSelector((state) => state.user.users);
 
   if (!user) {
     return null;

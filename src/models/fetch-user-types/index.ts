@@ -13,3 +13,8 @@ export type FetchUsersData = {
   total_pages: number;
   data: User[];
 };
+
+export type UserResponse = {
+  users: User[];
+  totalPages: number;
+};

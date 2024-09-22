@@ -8,8 +8,8 @@ export const DEFAULT_NUMBER_OF_PAGE = 1;
 export const Pagination = () => {
   const dispatch = useAppDispatch();
   const { numberOfPage, numberOfTotalPage } = useAppSelector((state) => ({
-    numberOfPage: state.user.userData.page,
-    numberOfTotalPage: state.user.userData.total_pages,
+    numberOfPage: state.user.page,
+    numberOfTotalPage: state.user.totalPages,
   }));
 
   return (

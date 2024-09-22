@@ -8,9 +8,7 @@ import { fetchUsers } from "../../services/fetch-users";
 import { setUsersToDefault } from "../../store/reducers/userSlice";
 
 export const UserList = () => {
-  const users = useAppSelector((state) => state.user.userData.data);
-  const page = useAppSelector((state) => state.user.userData.page);
-  const errorMessage = useAppSelector((state) => state.user.error);
+  const { users, page, error } = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -20,7 +18,7 @@ export const UserList = () => {
   }, []);
 
   let textModal = "";
-  if (errorMessage === "Failed to fetch") {
+  if (error === "Failed to fetch") {
     textModal = "Не удалось получить пользователей";
   } else textModal = "Ошибка сервера";
 

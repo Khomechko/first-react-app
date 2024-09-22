@@ -1,17 +1,23 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { FetchUsersData } from "../../../models/fetch-user-types";
+import { User, UserResponse } from "../../../models/fetch-user-types";
 import { fetchUsers } from "../../../services/fetch-users";
 
 type UserState = {
-  userData: FetchUsersData;
+  users: User[];
   isLoading: boolean;
   error: string;
+  perPage: number;
+  totalPages: number;
+  page: number;
 };
 
 const initialState: UserState = {
-  userData: { page: 0, per_page: 8, total: 12, total_pages: 2, data: [] },
+  users: [],
   isLoading: false,
   error: "",
+  perPage: 8,
+  totalPages: 0,
+  page: 0,
 };
 
 export const userSlice = createSlice({
@@ -22,11 +28,8 @@ export const userSlice = createSlice({
       state.error = "";
     },
     setUsersToDefault: (state) => {
-      state.userData.data = state.userData.data.slice(
-        0,
-        state.userData.per_page
-      );
-      state.userData.page = 1;
+      state.users = state.users.slice(0, state.perPage);
+      state.page = 1;
     },
   },
   extraReducers: (builder) => {
@@ -35,22 +38,17 @@ export const userSlice = createSlice({
     });
     builder.addCase(
       fetchUsers.fulfilled,
-      (state, action: PayloadAction<FetchUsersData>) => {
+      (state, action: PayloadAction<UserResponse>) => {
         state.isLoading = false;
-        state.userData.data = [...state.userData.data, ...action.payload.data];
-        state.userData.page = state.userData.page + 1;
+        state.users.push(...action.payload.users);
+        state.totalPages = action.payload.totalPages;
+        state.page += 1;
         state.error = "";
       }
     );
     builder.addCase(fetchUsers.rejected, (state, action) => {
       state.isLoading = false;
-      state.userData = {
-        page: 0,
-        per_page: 0,
-        total: 0,
-        total_pages: 0,
-        data: [],
-      };
+      state.users = [];
       state.error = action.error.message || "Critical error, sorry";
     });
   },
