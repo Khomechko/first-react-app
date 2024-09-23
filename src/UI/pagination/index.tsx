@@ -1,9 +1,9 @@
-import { useAppDispatch } from "../../hooks/reduxHooks";
-import { fetchUsers } from "../../services/fetch-users";
-import { setUsersToDefault } from "../../store/reducers/userSlice";
+import { useAppDispatch } from "hooks/reduxHooks";
+import { fetchUsers } from "services/fetch-users";
+import { setUsersToDefault } from "store/reducers/userSlice";
 import "./style.scss";
-import { store } from "../../store";
-import { selectPageAndTotalPage } from "../../store/reducers/userSlice/selectors";
+import { store } from "store";
+import { selectPageAndTotalPage } from "store/reducers/userSlice/selectors";
 
 export const DEFAULT_NUMBER_OF_PAGE = 1;
 

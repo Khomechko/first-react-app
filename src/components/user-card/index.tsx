@@ -1,5 +1,5 @@
 import "./style.scss";
-import { Like } from "../like";
+import { Like } from "components/like";
 import { Link } from "react-router-dom";
 
 type Props = {

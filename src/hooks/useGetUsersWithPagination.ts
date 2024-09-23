@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { useBoolState } from "./useBoolState";
-import { User } from "./useGetUsers";
+import { useBoolState } from "hooks/useBoolState";
+import { User } from "hooks/useGetUsers";
 
 export const useGetUsersWithPagination = () => {
   const [users, setUser] = useState<User[]>([]);

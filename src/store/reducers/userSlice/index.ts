@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { User, UserResponse } from "../../../models/fetch-user-types";
-import { fetchUsers } from "../../../services/fetch-users";
+import { User, UserResponse } from "models/fetch-user-types";
+import { fetchUsers } from "services/fetch-users";
 
 type UserState = {
   users: User[];

@@ -1,7 +1,7 @@
 import "./style.scss";
-import { UserContact } from "../../ui/user-contact";
-import { createNumberById } from "..//..//helpers/createNumberByIds";
-import { useGetUserById } from "../../hooks/useGetUserById";
+import { UserContact } from "ui/user-contact";
+import { createNumberById } from "helpers/createNumberByIds";
+import { useGetUserById } from "hooks/useGetUserById";
 
 export function UserDescription() {
   const user = useGetUserById();

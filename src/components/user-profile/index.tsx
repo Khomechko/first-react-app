@@ -1,7 +1,7 @@
 import "./style.scss";
-import { MainButton } from "../../ui/main-button";
+import { MainButton } from "ui/main-button";
 import { useNavigate } from "react-router-dom";
-import { useGetUserById } from "../../hooks/useGetUserById";
+import { useGetUserById } from "hooks/useGetUserById";
 
 export const UserProfile = () => {
   const navigate = useNavigate();

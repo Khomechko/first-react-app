@@ -1,10 +1,10 @@
-import { UserCard } from "../user-card";
-import { DEFAULT_NUMBER_OF_PAGE, Pagination } from "../../ui/pagination";
-import { ErrorModal } from "../../ui/modals/error-modal";
+import { UserCard } from "components/user-card";
+import { DEFAULT_NUMBER_OF_PAGE, Pagination } from "ui/pagination";
+import { ErrorModal } from "ui/modals/error-modal";
 import "./style.scss";
-import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
+import { useAppDispatch, useAppSelector } from "hooks/reduxHooks";
 import { useEffect } from "react";
-import { fetchUsers } from "../../services/fetch-users";
+import { fetchUsers } from "services/fetch-users";
 
 export const UserList = () => {
   const { users, page, error } = useAppSelector((state) => state.user);

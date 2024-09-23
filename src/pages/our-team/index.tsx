@@ -1,5 +1,5 @@
-import { UserList } from "../../components/user-list";
-import { Header } from "../../components/header";
+import { UserList } from "components/user-list";
+import { Header } from "components/header";
 
 export function OurTeam() {
   return (

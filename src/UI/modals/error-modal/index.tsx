@@ -1,6 +1,6 @@
 import "./style.scss";
-import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
-import { clearError } from "../../../store/reducers/userSlice";
+import { useAppDispatch, useAppSelector } from "hooks/reduxHooks";
+import { clearError } from "store/reducers/userSlice";
 import classNames from "classnames";
 
 type Props = {

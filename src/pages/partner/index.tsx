@@ -1,6 +1,6 @@
-import { UserDescription } from "../../components/user-description";
-import { Header } from "../../components/header";
-import { useAppSelector } from "../../hooks/reduxHooks";
+import { UserDescription } from "components/user-description";
+import { Header } from "components/header";
+import { useAppSelector } from "hooks/reduxHooks";
 
 export const Partner = () => {
   const user = useAppSelector((state) => state.user.users);

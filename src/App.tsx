@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Partner } from "./pages/partner";
-import { OurTeam } from "./pages/our-team";
-import "./App.scss";
+import { Partner } from "pages/partner";
+import { OurTeam } from "pages/our-team";
+import "App.scss";
 
 export function App() {
   return (

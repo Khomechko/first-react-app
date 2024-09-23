@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useAppSelector } from "./reduxHooks";
+import { useAppSelector } from "hooks/reduxHooks";
 
 export const useGetUserById = () => {
   const users = useAppSelector((state) => state.user.users);

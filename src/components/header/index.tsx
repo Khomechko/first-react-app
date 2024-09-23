@@ -1,7 +1,7 @@
 import classNames from "classnames";
-import { MainButton } from "../../ui/main-button";
-import { HelloBanner } from "../hello-banner";
-import { UserProfile } from "../user-profile";
+import { MainButton } from "ui/main-button";
+import { HelloBanner } from "components/hello-banner";
+import { UserProfile } from "components/user-profile";
 import "./style.scss";
 
 export type HeaderProps = {
