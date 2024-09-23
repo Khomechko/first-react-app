@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.scss";
+import classNames from "classnames";
 
 type Props = {
   children: React.ReactNode;
@@ -8,14 +9,11 @@ type Props = {
 };
 
 export const MainButton = ({ children, onClick, classNameModifier }: Props) => {
+  const mainButtonClasses = classNames("main-button", classNameModifier);
+
   return (
     <>
-      <button
-        className={`main-button ${
-          classNameModifier ? `main-button--${classNameModifier}` : ""
-        }`}
-        onClick={onClick}
-      >
+      <button className={mainButtonClasses} onClick={onClick}>
         {children}
       </button>
     </>

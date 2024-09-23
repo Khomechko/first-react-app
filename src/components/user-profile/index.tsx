@@ -9,7 +9,10 @@ export const UserProfile = () => {
 
   return (
     <div className="user-profile">
-      <MainButton onClick={() => navigate(-1)} classNameModifier={"left-side"}>
+      <MainButton
+        onClick={() => navigate(-1)}
+        classNameModifier={"main-button--left-side"}
+      >
         Назад
       </MainButton>
       <div className="user-profile__inner">

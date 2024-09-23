@@ -1,6 +1,7 @@
 import "./style.scss";
 import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
 import { clearError } from "../../../store/reducers/userSlice";
+import classNames from "classnames";
 
 type Props = {
   children: React.ReactNode;
@@ -9,10 +10,13 @@ type Props = {
 export const ErrorModal = ({ children }: Props) => {
   const { error } = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
+  const modalClasses = classNames("error-modal", {
+    active: error !== "",
+  });
 
   return (
     <div
-      className={`error-modal${error !== "" ? " active" : ""}`}
+      className={modalClasses}
       onClick={() => {
         dispatch(clearError());
       }}

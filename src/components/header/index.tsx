@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import { MainButton } from "../../ui/main-button";
 import { HelloBanner } from "../hello-banner";
 import { UserProfile } from "../user-profile";
@@ -9,11 +10,14 @@ export type HeaderProps = {
 
 export const Header = (props: HeaderProps) => {
   const { isOurTeam } = props;
+  const headerClasses = classNames({ "header header--mobile": !isOurTeam });
 
   return (
-    <header className={!isOurTeam ? "header header--mobile" : ""}>
+    <header className={headerClasses}>
       {isOurTeam ? <HelloBanner /> : <UserProfile />}
-      <MainButton classNameModifier={"right-side"}>Выход</MainButton>
+      <MainButton classNameModifier={"main-button--right-side"}>
+        Выход
+      </MainButton>
     </header>
   );
 };
