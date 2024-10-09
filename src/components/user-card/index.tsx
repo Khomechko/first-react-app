@@ -1,5 +1,6 @@
 import "./style.scss";
 import { Like } from "components/like";
+import { memo } from "react";
 import { Link } from "react-router-dom";
 
 type Props = {
@@ -8,7 +9,7 @@ type Props = {
   avatar: string;
 };
 
-export const UserCard = ({ id, title, avatar }: Props) => {
+export const UserCard = memo(({ id, title, avatar }: Props) => {
   return (
     <div className="card" tabIndex={0}>
       <Link to={`/partner/${id}`}>
@@ -18,4 +19,4 @@ export const UserCard = ({ id, title, avatar }: Props) => {
       <Like id={id} />
     </div>
   );
-};
+});

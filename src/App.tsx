@@ -9,7 +9,7 @@ export function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<OurTeam />} />
-          <Route path="/werew" element={<Partner />} />
+          <Route path="/partner/:id" element={<Partner />} />
         </Routes>
       </BrowserRouter>
       <div className="footer"></div>
